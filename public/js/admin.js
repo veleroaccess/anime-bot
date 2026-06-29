@@ -15,8 +15,10 @@ function login() {
   localStorage.setItem('admin_token', pw);
   
   // Test auth
-  api('/stats').then(data => {
-    if (data && !data.error) {
+
+api('/stats').then(data => {
+    if (data !== null && data !== undefined) {
+  
       document.getElementById('loginModal').classList.remove('open');
       showPage('dashboard');
     } else {
